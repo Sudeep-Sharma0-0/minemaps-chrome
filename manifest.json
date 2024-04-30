@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "MineMaps",
+  "description": "Minecraft map downloader.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "pages/index.html",
+    "default_icon": "images/icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "unlimitedStorage",
+    "downloads",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://www.minecraftmaps.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.minecraftmaps.com/*"],
+      "js": ["content/mcmaps.js"]
+    }
+  ]
+}
